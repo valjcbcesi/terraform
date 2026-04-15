@@ -10,6 +10,9 @@ resource "google_sql_database_instance" "main_db_instance" {
   # On doit ajouter cette référence pour une IP privée
   depends_on = [google_service_networking_connection.private_vpc_connection]
 
+  # Ajout pour autoriser la destruction
+  deletion_protection = false
+
   settings {
     tier = "db-f1-micro"
 
